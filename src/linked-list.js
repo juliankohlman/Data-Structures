@@ -1,15 +1,31 @@
+/* eslint-disable */
+class LinkedListNode {
+  constructor(value, next = null) {
+    this.value = value;
+    this.next = next;
+  }
+}
+
 class LinkedList {
   /* Do not modify the constructor */
   constructor() {
     this.head = null;
     this.tail = null;
   }
-
   /* Add the given value to the tail
   of the list. The `tail` pointer
   should be updated accordingly */
   addToTail(value) {
+    let newNode = new LinkedListNode(value);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
 
+      return this;
+    }
+
+    this.tail.next = newNode
+    this.tail = newNode
   }
 
   /* Remove the list's `head` value 
